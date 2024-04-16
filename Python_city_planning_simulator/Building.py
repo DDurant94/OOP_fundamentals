@@ -2,24 +2,24 @@ class Building:
   def __init__(self, name, floors):
     self.name = name
     self.floors = floors
+    self.building_info = {}
 
   def export_file(self,file):
     try:
       with open(file, 'a') as file:
         file.write(f"{self.name},{self.floors}\n")
         print(f"file has been saved")
-    except:
+    except FileNotFoundError:
       pass
 
-def import_file(file):
+  def import_file(self,file):
     try:
       with open(file, "r") as file:
-        buildings = {}
         for line in file:
           name,floors = line.strip().split(',')
-          buildings[name] = floors
+          self.building_info[name] = floors
         print(f"file has been loaded") 
-        return buildings
+        return self.building_info
     except AttributeError:
       pass
 

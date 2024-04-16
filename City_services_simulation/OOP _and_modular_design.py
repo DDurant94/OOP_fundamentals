@@ -12,8 +12,8 @@ common attributes like city name and base fare. Implement instance variables for
 Expected Outcome: A Bus class with both class and instance variables, and a transportation module to manage different bus routes. 
 A test script should demonstrate creating bus instances and accessing both class and instance attributes.
 '''
-import Public_transportation as pt
 
+from Public_transportation import Bus
 buses = ["001", "002", "003"]
 routes = ["101","102","103"]
 print("Bus availability: ")
@@ -25,10 +25,10 @@ for count, route in enumerate(routes):
   print(f"{count+1}. {route}")
 user_input1 = input("Choose a route number [000]: ")
 user_input2 = int(input("Enter passenger capacity: "))
-user_input = pt.Bus(user_input1,user_input2)
+user_input = Bus(user_input1,user_input2)
 passenger_count = int(input("How many people are on the bus: "))
 if passenger_count < user_input2:
   total_fare = user_input.calculating_bus_fare(passenger_count)
-  print(f"The total fare is ${total_fare} in {pt.Bus.city_name} on route #{user_input1}. With a passenger count of {passenger_count} people")
+  print(f"The total fare is ${total_fare} in {user_input.city_name} on route #{user_input1}. With a passenger count of {passenger_count} people")
 else:
   print("Can Not have more passengers than you can carry")

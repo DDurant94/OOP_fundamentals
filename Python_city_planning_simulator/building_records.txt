@@ -2,3 +2,5 @@ Coding,10
 Temple,11
 Class,30
 Homework,50
+Coding2,10
+World Trade Center,100
