@@ -32,15 +32,15 @@ def main():
     if menu_choice == "1":
         building_name = input("Enter the name of the building: ").title()
         number_floors = input("Enter the number of floors: ")
-        # not sure why my class isnt take in the inputs i am giving it
-        building = Building(building_name,number_floors)
+        building = Building.Building(building_name,number_floors)
     elif menu_choice == "2":
-      pass
+      for count, (name,floors) in enumerate(city.items()):
+        print(f"Building Number {count+1}.\nBuilding name: {name}\nNumber of floors: {floors}\n")
     elif menu_choice == "3":
-      # not sure why this isnt lighing up 
       building.export_file("Python_city_planning_simulator\\building_records.txt")
     elif menu_choice == "4":
-      Building.import_file("Python_city_planning_simulator\\building_records.txt")
+      city = Building.import_file("Python_city_planning_simulator\\building_records.txt")
+      print(city)
     elif menu_choice == "5":
       print("Thank you for using Building Record Keeping Program")
       break

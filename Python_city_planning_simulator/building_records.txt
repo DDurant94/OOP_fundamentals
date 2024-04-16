@@ -1,0 +1,4 @@
+Coding,10
+Temple,11
+Class,30
+Homework,50
