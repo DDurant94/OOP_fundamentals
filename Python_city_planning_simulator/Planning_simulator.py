@@ -27,24 +27,27 @@ import Building
 def main():
   print("Welcome to the Building Record Keeping Program")
   while True:
-    print("Main Menu:\n1. Add Building\n2. View Building\n3. Save File\n4. Import File\n5. Exit")
-    menu_choice = input("Choose one of our menu options: ")
-    if menu_choice == "1":
-        building_name = input("Enter the name of the building: ").title()
-        number_floors = input("Enter the number of floors: ")
-        building = Building.Building(building_name,number_floors)
-    elif menu_choice == "2":
-      for count, (name,floors) in enumerate(city.items()):
-        print(f"Building Number {count+1}.\nBuilding name: {name}\nNumber of floors: {floors}\n")
-    elif menu_choice == "3":
-      building.export_file("Python_city_planning_simulator\\building_records.txt")
-    elif menu_choice == "4":
-      city = Building.import_file("Python_city_planning_simulator\\building_records.txt")
-      print(city)
-    elif menu_choice == "5":
-      print("Thank you for using Building Record Keeping Program")
-      break
-    else:
-      print("Invalid input")
+    try:
+      print("Main Menu:\n1. Add Building\n2. View Building\n3. Save File\n4. Import File\n5. Exit")
+      menu_choice = input("Choose one of our menu options: ")
+      if menu_choice == "1":
+          building_name = input("Enter the name of the building: ").title()
+          number_floors = input("Enter the number of floors: ")
+          building = Building.Building(building_name,number_floors)
+      elif menu_choice == "2":
+        for count, (name,floors) in enumerate(city.items()):
+          print(f"Building Number {count+1}.\nBuilding name: {name}\nNumber of floors: {floors}\n")
+      elif menu_choice == "3":
+        building.export_file("Python_city_planning_simulator\\building_records.txt")
+      elif menu_choice == "4":
+        city = Building.import_file("Python_city_planning_simulator\\building_records.txt")
+        print(city)
+      elif menu_choice == "5":
+        print("Thank you for using Building Record Keeping Program")
+        break
+      else:
+        print("Invalid input")
+    except UnboundLocalError:
+      print("Error: Load a file before viewing or saving")
 
 main()
